@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/TallTree.obj-19a5608666b929552f4a82644cae06af.mesh"
+
+[deps]
+
+files=[ "res://.import/TallTree.obj-19a5608666b929552f4a82644cae06af.mesh" ]
+
+source_file="res://3D Models/TallTree.obj"
+dest_files=[ "res://.import/TallTree.obj-19a5608666b929552f4a82644cae06af.mesh", "res://.import/TallTree.obj-19a5608666b929552f4a82644cae06af.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

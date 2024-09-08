@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/LoadBG.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Sky.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/Open_sound.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sounds/Claim_sound.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sounds/Game_music.mp3" type="AudioStream" id=10]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends InterpolatedCamera
+
+func _ready():
+	Gen.camera = self
+	target =  \"../Player/Head\"
+"
+
+[node name="Game" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Level" type="Node" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0141145, 11.5377, 0.0157572 )
+
+[node name="Camera" type="InterpolatedCamera" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28, 3, 0 )
+speed = 30.0
+enabled = true
+script = SubResource( 1 )
+
+[node name="Sky" parent="." instance=ExtResource( 5 )]
+
+[node name="UI" parent="." instance=ExtResource( 2 )]
+mouse_filter = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource( 6 )]
+margin_right = 22140.0
+margin_bottom = 22593.0
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_use_anchors_": true
+}
+
+[node name="LoadBG" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+mouse_filter = 2
+
+[node name="Transition" parent="." instance=ExtResource( 7 )]
+
+[node name="Open_sound" parent="." instance=ExtResource( 8 )]
+
+[node name="Claim_sound" parent="." instance=ExtResource( 9 )]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "Music"
+
+[connection signal="child_exiting_tree" from="." to="PauseMenu" method="_on_Game_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Level" to="." method="_on_Level_child_entered_tree"]

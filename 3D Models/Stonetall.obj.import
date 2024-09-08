@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Stonetall.obj-598a8ad018309ddd80e401c8f08703ff.mesh"
+
+[deps]
+
+files=[ "res://.import/Stonetall.obj-598a8ad018309ddd80e401c8f08703ff.mesh" ]
+
+source_file="res://3D Models/Stonetall.obj"
+dest_files=[ "res://.import/Stonetall.obj-598a8ad018309ddd80e401c8f08703ff.mesh", "res://.import/Stonetall.obj-598a8ad018309ddd80e401c8f08703ff.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

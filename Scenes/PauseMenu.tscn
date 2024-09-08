@@ -1,0 +1,232 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Main/Files/ProductSans.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Main/ProductSans.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=3]
+[ext_resource path="res://Main/ButtonPressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://Main/ButtonNormal.tres" type="StyleBox" id=5]
+[ext_resource path="res://Main/ButtonHover.tres" type="StyleBox" id=6]
+[ext_resource path="res://Main/UIicons/Continue.png" type="Texture" id=7]
+[ext_resource path="res://Main/UIicons/Settings.png" type="Texture" id=8]
+[ext_resource path="res://Main/UIicons/To_menu.png" type="Texture" id=9]
+[ext_resource path="res://Main/PauseMenu.png" type="Texture" id=10]
+[ext_resource path="res://Sounds/Open_sound.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.380392, 0.72549, 0.968627, 1 )
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color( 0, 0.54902, 0.952941, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+
+[sub_resource type="Animation" id=4]
+resource_name = "ClosePause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 520, 0 ), Vector2( 520, -1147 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 520, -1147 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "StartPause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 520, -1147 ), Vector2( 520, 0 ) ]
+}
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_left = 0.286458
+anchor_top = -0.97963
+anchor_right = 0.713542
+margin_left = 520.0
+margin_top = -1147.0
+margin_right = 5448.0
+margin_bottom = 5155.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.482353, 0.698039, 0.992157, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 820.0
+margin_bottom = 1007.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.0
+margin_bottom = 2.0
+mouse_filter = 2
+custom_constants/margin_right = 50
+custom_constants/margin_top = 10
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 106
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 4875.0
+margin_bottom = 6198.0
+mouse_filter = 2
+custom_constants/separation = 69
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/VBox"]
+margin_right = 4825.0
+margin_bottom = 122.0
+custom_constants/margin_right = 53
+
+[node name="Title" type="Label" parent="Margin/VBox/MarginContainer"]
+margin_right = 4772.0
+margin_bottom = 122.0
+size_flags_vertical = 2
+custom_constants/line_spacing = -67
+custom_fonts/font = SubResource( 1 )
+text = "id_pause"
+align = 1
+
+[node name="Continue" type="HBoxContainer" parent="Margin/VBox"]
+margin_top = 191.0
+margin_right = 4825.0
+margin_bottom = 2144.0
+size_flags_vertical = 3
+custom_constants/separation = 60
+
+[node name="Continue_Button" type="Button" parent="Margin/VBox/Continue"]
+margin_right = 170.0
+margin_bottom = 1953.0
+focus_neighbour_bottom = NodePath("../../Settings/Settings_Button")
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = ExtResource( 5 )
+icon = ExtResource( 7 )
+icon_align = 1
+
+[node name="Label" type="Label" parent="Margin/VBox/Continue"]
+margin_left = 230.0
+margin_top = 927.0
+margin_right = 628.0
+margin_bottom = 1025.0
+custom_fonts/font = ExtResource( 2 )
+text = "id_continue"
+
+[node name="Settings" type="HBoxContainer" parent="Margin/VBox"]
+margin_top = 2213.0
+margin_right = 4825.0
+margin_bottom = 4166.0
+size_flags_vertical = 3
+custom_constants/separation = 60
+
+[node name="Settings_Button" type="Button" parent="Margin/VBox/Settings"]
+margin_right = 170.0
+margin_bottom = 1953.0
+focus_neighbour_top = NodePath("../../Continue/Continue_Button")
+focus_neighbour_bottom = NodePath("../../Back/Back_Button")
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = ExtResource( 5 )
+icon = ExtResource( 8 )
+icon_align = 1
+
+[node name="Label" type="Label" parent="Margin/VBox/Settings"]
+margin_left = 230.0
+margin_top = 927.0
+margin_right = 601.0
+margin_bottom = 1025.0
+custom_fonts/font = ExtResource( 2 )
+text = "id_settings"
+align = 1
+
+[node name="Back" type="HBoxContainer" parent="Margin/VBox"]
+margin_top = 4235.0
+margin_right = 4825.0
+margin_bottom = 6188.0
+size_flags_vertical = 3
+custom_constants/separation = 60
+
+[node name="Back_Button" type="Button" parent="Margin/VBox/Back"]
+margin_right = 170.0
+margin_bottom = 1953.0
+focus_neighbour_top = NodePath("../../Settings/Settings_Button")
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = ExtResource( 5 )
+icon = ExtResource( 9 )
+icon_align = 1
+
+[node name="Label" type="Label" parent="Margin/VBox/Back"]
+margin_left = 230.0
+margin_top = 927.0
+margin_right = 595.0
+margin_bottom = 1025.0
+custom_fonts/font = ExtResource( 2 )
+text = "id_tomenu"
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/ClosePause = SubResource( 4 )
+anims/RESET = SubResource( 2 )
+anims/StartPause = SubResource( 3 )
+
+[node name="Open_sound" parent="." instance=ExtResource( 11 )]
+
+[connection signal="pressed" from="Margin/VBox/Continue/Continue_Button" to="." method="_on_Continue_Button_pressed"]
+[connection signal="pressed" from="Margin/VBox/Settings/Settings_Button" to="." method="_on_Settings_Button_pressed"]
+[connection signal="pressed" from="Margin/VBox/Back/Back_Button" to="." method="_on_Back_Button_pressed"]

@@ -1,0 +1,39 @@
+﻿id;en;ru
+id_play;Play;Играть
+id_settings;Settings;Настройки
+id_continue;Continue;Продолжить
+id_about;About;Об игре
+id_creators;Creators;Создатели
+id_control;Control;Управление      
+id_idea;Idea: Kemal Mutalup;Идея: Кемал Муталуп
+id_design;Design: Kemal Mutalup;Дизайн: Кемал Муталуп
+id_coding;Сoding: Kemal Mutalup;Кодинг: Кемал Муталуп
+id_3d;3d: Kemal Mutalup;3D: Кемал Муталуп
+id_movement;Movement \n;Передвижение \n
+id_jump;Jump  \n \n;Прыжок \n \n
+id_interaction;Interaction \n;Взаимодействие \n с объектами \n
+id_back;    Back    ;     Назад      
+id_hint;Find the key\nand open the door;Ищи ключ\nи открой дверь
+id_pause;\n -Pause-; \n -Пауза-
+id_continue1;Continue    ;Продолжить     
+id_settings1;Settings        ;Настройки        
+id_tomenu;Back              ;В меню        
+id_alert;Need key;Необходим ключ
+id_open;Open;Открыть
+id_take;Take;Взять
+id_level;Level;Уровень
+id_shadow;Shadows;Тени
+id_sky;Beautiful Sky;Красивое Небо
+id_fullscreen;Fullscreen;Полноэкранный режим
+id_music;Music:     ;Музыка: 
+id_sfx;Sounds:  ;Звук:       
+id_targetfps;Target FPS:     ;Ограничение FPS: 
+id_settingstitle;Settings;Настройки
+id_langtitle;Language;Язык
+id_soundtitle;Sounds;Звук
+id_graphtitle;Graphics;Графика
+id_settingback;Back;Назад
+id_tip;Aim for the sky…;Стремись к небу…
+id_finish_text;Good job! You beat the game \n Take the medal);Молодец! Ты перошел игру \n Держи свою виртуальную медальку)
+id_finish_button;Menu;Меню
+id_time_lbl;Your time spent: ;Твоё затраченное время: 

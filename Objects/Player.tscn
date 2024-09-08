@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/ActZone.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=5]
+radius = 0.575446
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.9, 0 ), Vector3( 0, 1.93, 0 ), Vector3( 0, 1.9, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Move"
+length = 3.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.75, 1.5, 2.25, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.18, 1.9, 0 ), Vector3( 0.043, 2.05, 0 ), Vector3( 0.18, 1.9, 0 ), Vector3( -0.008, 2.05, 0 ), Vector3( -0.18, 1.9, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Move1"
+length = 2.0
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.9, 0 ), Vector3( 0, 1.94795, 0 ), Vector3( 0, 1.9, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.33, 0.67, 1.33, 1.67 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 7.3 ), Vector3( 0, 0, -7.3 ), Vector3( 0, 0, 7.3 ), Vector3( 0, 0, -7.3 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "None"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.9, 0 ), Vector3( 0, 1.9, 0 ) ]
+}
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Body" type="CollisionShape" parent="."]
+transform = Transform( 0.8, 0, 0, 0, -3.49691e-08, -1.1, 0, 0.8, -4.80825e-08, 0, 1.189, 0 )
+shape = SubResource( 5 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0 )
+
+[node name="ActZone" type="RayCast" parent="Head"]
+enabled = true
+cast_to = Vector3( 0, 0, -2 )
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource( 2 )
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )
+anims/Move = SubResource( 2 )
+anims/Move1 = SubResource( 3 )
+anims/None = SubResource( 4 )
+blend_times = [ "Idle", "Move", 0.2, "Move", "Idle", 0.3, "None", "Idle", 0.3, "None", "Move", 0.3 ]

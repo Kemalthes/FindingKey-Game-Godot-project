@@ -1,0 +1,8 @@
+[gd_resource type="PanoramaSky" load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/Panorama1.jpg-7606fe1df6160ab2637bdbd32be706d0.stex"
+
+[resource]
+panorama = SubResource( 1 )
