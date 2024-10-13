@@ -6,7 +6,7 @@ My first Godot game.
 
 ----------1.0.1-----------
 
-5 December - With an unknown error, the game now does not crash
+5 December - crash bug fix
 
 -----------1.1------------
 
@@ -20,7 +20,7 @@ My first Godot game.
 
 15 April - Added gamepad control
 
-In future(1.2.1): bug fix update
+In future(1.2.1): bug fix update(bug with changing fps, muting sounds and v-sync)
 
 635 lines of code:)
 
