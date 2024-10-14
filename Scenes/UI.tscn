@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Main/ProductSans.tres" type="DynamicFont" id=2]
@@ -11,8 +11,16 @@
 [ext_resource path="res://Main/UIicons/Border.png" type="Texture" id=9]
 [ext_resource path="res://Main/Files/KeyParticle3.png" type="Texture" id=10]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Show"
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Main/Files/ProductSans.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 68
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="Animation" id=8]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -51,7 +59,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 60
+size = 50
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
@@ -111,6 +119,7 @@ custom_constants/separation = 53
 alignment = 1
 
 [node name="Alert" type="Control" parent="Interactive"]
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 46.0
 margin_right = 918.0
 margin_bottom = 46.0
@@ -125,12 +134,14 @@ margin_top = -38.0
 margin_right = 153.5
 margin_bottom = -1.0
 grow_horizontal = 2
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = SubResource( 7 )
+text = "
+"
 align = 1
 valign = 1
 
 [node name="Animation" type="AnimationPlayer" parent="Interactive/Alert"]
-anims/Show = SubResource( 1 )
+anims/Show = SubResource( 8 )
 
 [node name="Act_name" type="Label" parent="Interactive"]
 margin_top = 99.0
@@ -187,10 +198,10 @@ expand = true
 [node name="Hint" type="Label" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 31.0
-margin_top = -183.0
-margin_right = 589.0
-margin_bottom = 16.0
+margin_left = 25.0
+margin_top = -168.0
+margin_right = 583.0
+margin_bottom = -29.0
 custom_fonts/font = SubResource( 3 )
 text = "id_hint"
 

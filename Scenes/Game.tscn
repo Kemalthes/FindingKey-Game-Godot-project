@@ -39,8 +39,8 @@ script = SubResource( 1 )
 mouse_filter = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource( 6 )]
-margin_right = 22140.0
-margin_bottom = 22593.0
+margin_right = 22960.0
+margin_bottom = 23651.0
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_use_anchors_": true

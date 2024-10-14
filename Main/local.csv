@@ -34,6 +34,7 @@ id_soundtitle;Sounds;Звук
 id_graphtitle;Graphics;Графика
 id_settingback;Back;Назад
 id_tip;Aim for the sky…;Стремись к небу…
-id_finish_text;Good job! You beat the game \n Take the medal);Молодец! Ты перошел игру \n Держи свою виртуальную медальку)
+id_finish_text;Good job! You beat the game \n Take the medal);Молодец! Ты прошёл игру \n Держи свою виртуальную медальку)
 id_finish_button;Menu;Меню
 id_time_lbl;Your time spent: ;Твоё затраченное время: 
+id_else_alert;Have you read the inscription when pointing at the key?;Ты читал, надпись при наведении на ключ?

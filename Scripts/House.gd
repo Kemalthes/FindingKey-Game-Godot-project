@@ -14,13 +14,31 @@ func _process(delta):
 	else:
 		allow_sound = false
 
+
 func open():
-	if !name_key || (name_key && Gen.pack.has(name_key)):
-		if Gen.saving_stats["level"] != 10 || (Gen.saving_stats["level"] == 10 && Gen.count_jump > 50):
-			success_sound.play()
-			door.get_node("Animation").play("Open")
-			door.get_node("Action").queue_free()
-			Gen.ui.hide_inventory_object()
-	elif allow_sound:
+#ATTENTION: BAD CODE, maybe in future I will rework it
+	var is_key = !name_key || (name_key && Gen.pack.has(name_key))
+	if !(Gen.saving_stats["level"] in Gen.MOD_LEVELS):
+		if is_key:
+			open_door()
+		else:
+			failure(is_key)
+	elif Gen.saving_stats["level"] == 10:
+		if is_key && Gen.count_jump > 50:
+			open_door()
+		else:
+			failure(is_key, "id_else_alert")
+	
+func open_door():
+	success_sound.play()
+	door.get_node("Animation").play("Open")
+	door.get_node("Action").queue_free()
+	Gen.ui.hide_inventory_object()
+	
+func failure(is_key:bool, else_id=null):
+	if allow_sound:
 		failure_sound.play()
-		Gen.ui.alert("id_alert")
+		if !is_key:
+			Gen.ui.alert("id_alert")
+		elif else_id:
+			Gen.ui.alert(else_id)

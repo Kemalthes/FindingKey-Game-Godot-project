@@ -256,14 +256,12 @@ align = 1
 margin_left = 644.0
 margin_right = 870.0
 margin_bottom = 101.0
-focus_mode = 0
 size_flags_horizontal = 10
 custom_fonts/font = SubResource( 4 )
 custom_styles/normal = SubResource( 10 )
 text = "60"
 align = 1
 max_length = 3
-expand_to_text_length = true
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 
@@ -459,6 +457,7 @@ custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = SubResource( 15 )
 custom_styles/hover_pressed = ExtResource( 4 )
 custom_styles/normal = ExtResource( 6 )
+pressed = true
 
 [node name="Back" type="Button" parent="."]
 margin_left = 26.0

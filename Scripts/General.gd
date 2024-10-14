@@ -10,6 +10,7 @@ var pause_menu
 var pack = {}
 var startposes = {}
 var act_obj = null
+const MOD_LEVELS = [10]
 
 var IN_LEVEL = false
 var first_open_menu = false
@@ -94,7 +95,7 @@ func mute(bus, value: bool):
 
 func change_volume(bus, value, type: String):
 	AudioServer.set_bus_volume_db(bus, value)
-	if saving_stats[type+"_value"] < -25:
+	if saving_stats[type+"_value"] < -26:
 		mute(bus, true)
 	elif saving_stats[type+"_sound"]:
 		mute(bus, false)

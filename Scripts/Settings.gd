@@ -104,27 +104,31 @@ func _on_Language_pressed():
 
 func _on_S_Mute_pressed():
 	open_sound.play()
-	if s_mute.pressed:
+	if s_mute.pressed && Gen.saving_stats["s_value"] > -26:
 		Gen.mute(Gen.sound_bus, false)
 		Gen.saving_stats["s_sound"] = true
 	else:
 		Gen.mute(Gen.sound_bus, true)
 		Gen.saving_stats["s_sound"] = false
 
+func _on_S_HScroll_value_changed(value):
+	if Gen.saving_stats["s_value"] > -26 && s_mute.pressed:
+		Gen.mute(Gen.sound_bus, false)
+	Gen.change_volume(Gen.sound_bus, value, "s")
+	Gen.saving_stats["s_value"] = value
+
 func _on_M_Mute_pressed():
 	open_sound.play()
-	if m_mute.pressed:
+	if m_mute.pressed && Gen.saving_stats["m_value"] > -28:
 		Gen.mute(Gen.music_bus, false)
 		Gen.saving_stats["m_sound"] = true
 	else:
 		Gen.mute(Gen.music_bus, true)
 		Gen.saving_stats["m_sound"] = false
-
-func _on_S_HScroll_value_changed(value):
-	Gen.change_volume(Gen.sound_bus, value, "s")
-	Gen.saving_stats["s_value"] = value
-
+		
 func _on_M_HScroll_value_changed(value):
+	if Gen.saving_stats["m_value"] > -28 && m_mute.pressed:
+		Gen.mute(Gen.music_bus, false)
 	Gen.change_volume(Gen.music_bus, value, "m")
 	Gen.saving_stats["m_value"] = value
 
@@ -133,6 +137,7 @@ func _input(event):
 		save_values()
 		if Gen.IN_LEVEL:
 			Gen.pause_menu.get_node("Margin").get_node("VBox").get_node("Continue").get_node("Continue_Button").grab_focus()
+			
 func _on_Back_pressed():
 	save_values()
 	if Gen.IN_LEVEL:
